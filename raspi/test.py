@@ -7,8 +7,8 @@ IN1 = 25
 IN2 = 8
 
 # 오른쪽 바퀴
-IN3 = 7
-IN4 = 1
+IN3 = 1
+IN4 = 7
 
 # --- GPIO 초기화 ---
 GPIO.setmode(GPIO.BCM)
@@ -64,7 +64,7 @@ def turn_right():
 
 # --- 실행 부분 ---
 try:
-    print("=== RC카 테스트 시작 (3초 대기) ===")
+    print("RC카 테스트 (3초 대기)")
     time.sleep(3)
 
     forward()
@@ -93,7 +93,7 @@ try:
 
 except KeyboardInterrupt:
     # Ctrl+C 누르면 즉시 멈춤
-    print("모터를 멈춥니다.")
+    print("종료")
     stop()
 
 finally:
