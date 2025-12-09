@@ -1,4 +1,4 @@
-package com.iot2ndproject.mobilityhub.mobility_hub_backend;
+package com.iot2ndproject.mobilityhub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
