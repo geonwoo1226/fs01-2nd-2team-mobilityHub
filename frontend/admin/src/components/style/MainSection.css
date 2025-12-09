@@ -125,10 +125,9 @@ tbody > tr:hover {
   align-items: center;
   gap: 3;
   padding: 0.75rem;
-  /* background-color: rgb(255, 255, 187); */
-  background-color: green;
+  background-color: rgb(255, 255, 187);
+  /* background-color: green; */
   border-radius: 0.5rem;
-  color: white;
 }
 
 /* .weather-text {

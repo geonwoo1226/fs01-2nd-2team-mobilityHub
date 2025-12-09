@@ -1,0 +1,177 @@
+.statistics-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* ------------------- SUMMARY ------------------- */
+.summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.6rem;
+  border: 1px solid #e5e7eb;
+}
+
+.summary-title {
+  color: gray;
+  font-size: 14px;
+}
+
+.summary-value {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ------------------- 그래프 영역 ------------------- */
+.chart-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+}
+
+.chart-box {
+  background: white;
+  border-radius: 0.6rem;
+  border: 1px solid #e5e7eb;
+  padding-bottom: 1.5rem;
+}
+
+.chart-title {
+  padding: 1.5rem;
+  font-size: 18px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chart-placeholder {
+  background: green;
+  height: 260px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------------------- 하단: 테이블 + 날씨 ------------------- */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+/* 테이블 */
+.parking-list {
+  background: white;
+  border-radius: 0.6rem;
+  border: 1px solid #e5e7eb;
+}
+
+.parking-title-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.parking-title {
+  font-weight: bold;
+}
+
+.parking-count {
+  background: #3b82f6;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.4rem;
+}
+
+.parking-table {
+  width: 100%;
+}
+
+.parking-table th {
+  background: #f9fafb;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.parking-table td {
+  padding: 0.75rem 1rem;
+}
+
+.parking-table tr:hover {
+  background: #f3f4f6;
+}
+
+/* ------------------- 날씨 박스 ------------------- */
+.weather-info-box {
+  background: white;
+  border-radius: 0.6rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+}
+
+.weather-date-title {
+  color: gray;
+  font-size: 14px;
+}
+
+.weather-date {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.weather-box {
+  background: green;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 물 수위 시스템 */
+.water-box {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d1d5db;
+}
+
+.water-title {
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+
+.water-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+.state-text {
+  color: green;
+  font-weight: bold;
+}
+.parking-list {
+  background-color: green;
+}
+
+.water-message {
+  margin-top: 1rem;
+  font-size: 14px;
+  color: gray;
+}
