@@ -1,0 +1,145 @@
+.admin-wrapper {
+  padding: 20px;
+}
+
+.admin-box {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+}
+
+.admin-header {
+  padding: 20px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.admin-header h3 {
+  color: #333;
+  margin: 0;
+}
+
+.admin-header p {
+  color: #777;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 12px 20px;
+  background: #fafafa;
+  color: #555;
+}
+
+.admin-table td {
+  padding: 12px 20px;
+}
+
+.admin-table tr:hover {
+  background: #f5f8ff;
+}
+
+/* 로그인된 관리자 강조 */
+.highlight-row {
+  background: #e9f2ff !important;
+}
+
+/* 관리자 ID 아이콘 위치 */
+.id-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-shield {
+  width: 16px;
+  height: 16px;
+  color: #2563eb;
+}
+
+/* 프로필 아이콘 */
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar.main {
+  background: #3b82f6;
+}
+
+.avatar-icon {
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+/* 태그 색상 */
+.tag {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.tag.purple {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.tag.blue {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.tag.green {
+  background: #d1fae5;
+  color: #047857;
+}
+.tag.orange {
+  background: #ffedd5;
+  color: #b45309;
+}
+.tag.indigo {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+.tag.pink {
+  background: #fce7f3;
+  color: #be185d;
+}
+.tag.gray {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* 연락처 / 이메일 */
+.info-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555;
+}
+
+.info-icon {
+  width: 16px;
+  height: 16px;
+  color: #6b7280;
+}
