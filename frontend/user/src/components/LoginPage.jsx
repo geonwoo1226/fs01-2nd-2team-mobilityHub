@@ -1,34 +1,42 @@
 import { useState } from "react";
+import { loginUser, signupUser, saveToken } from "../api/userApi";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage({ onLogin }) {
+  const navigate = useNavigate();
   const [isSignup, setIsSignup] = useState(false);
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!userId.trim()) return;
+  if (!userId.trim()) return;
 
-    const users = JSON.parse(localStorage.getItem("users") || "{}");
-
+  try {
     if (isSignup) {
       // 회원가입
-      users[userId] = { password, name, phone, vehicles: [], history: [] };
-      localStorage.setItem("users", JSON.stringify(users));
+      await signupUser(userId, password, name, phone);
       alert("회원가입이 완료되었습니다!");
       setIsSignup(false);
+      setUserId("");
+      setPassword("");
+      setName("");
+      setPhone("");
     } else {
-      // 로그인
-      if (users[userId] && users[userId].password === password) {
-        onLogin(userId);
-      } else {
-        alert("아이디 또는 비밀번호가 일치하지 않습니다.");
-      }
+      //로그인
+      const response = await loginUser(userId, password);
+      saveToken(response.accessToken, response.userId, response.roles);
+      onLogin(response.userId);
+      navigate("/main");
     }
-  };
+  } catch (err) {
+    console.error(err);
+    alert("회원가입 실패");
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
