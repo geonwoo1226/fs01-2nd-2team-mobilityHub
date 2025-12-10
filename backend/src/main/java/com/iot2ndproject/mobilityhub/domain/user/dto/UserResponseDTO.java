@@ -17,8 +17,8 @@ import java.util.Date;
 @Builder
 public class UserResponseDTO {
     private String userId; // 유저아이디
-    private String userPassword; // 패스워드
+    private String password; // 패스워드
     private String userName; // 유저이름
-    private String phoneNumber; // 휴대폰번호
+    private String tel; // 휴대폰번호
     private String role;
 }

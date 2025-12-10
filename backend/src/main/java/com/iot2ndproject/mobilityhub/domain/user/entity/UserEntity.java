@@ -28,7 +28,7 @@ public class UserEntity {
     private String password; // 패스워드
 
     @Column(nullable = false)
-    private String name; // 이름
+    private String userName; // 이름
 
     @Column(nullable = false)
     private String tel; // 휴대폰번호
@@ -39,10 +39,10 @@ public class UserEntity {
     @Column
     private String role;
     // 회원가입시
-    public UserEntity(String userId, String password, String name, String tel, String role) {
+    public UserEntity(String userId, String password, String userName, String tel, String role) {
         this.userId = userId;
         this.password = password;
-        this.name = name;
+        this.userName = userName;
         this.tel = tel;
         this.role = role;
     }
