@@ -26,8 +26,11 @@ public class WorkInfoEntity {
     private Long id; // 자동생성용 ID, 추후에 삭제해도 됌
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_car_id")
     private UserCarEntity userCar; // 유저-차 ID
+
+    @Column
+    private String requestGroupId; // 동일 요청(복수 서비스)을 묶는 그룹 ID
 
     @CreationTimestamp
     private LocalDateTime requestTime; // 사용자 요청시간(컬럼생성시 자동생성)
@@ -42,6 +45,12 @@ public class WorkInfoEntity {
 
     @Column(nullable = false)
     private String carState; // 차 상태
+
+    @Column
+    private String status; // 해당 작업(서비스)의 상태 (REQUESTED/IN_PROGRESS/DONE)
+
+    @Column(columnDefinition = "TEXT")
+    private String additionalRequest; // 추가요청(주로 정비)
 
     private LocalDateTime entryTime; // 입차시간
 

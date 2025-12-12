@@ -1,7 +1,7 @@
 package com.iot2ndproject.mobilityhub.domain.work.dao;
 
-import com.iot2ndproject.mobilityhub.domain.work.entity.ServiceRequestEntity;
-import com.iot2ndproject.mobilityhub.domain.work.repository.ServiceRequestRepository;
+import com.iot2ndproject.mobilityhub.domain.work.entity.WorkInfoEntity;
+import com.iot2ndproject.mobilityhub.domain.work.repository.WorkInfoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -12,25 +12,30 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ServiceRequestDAOImpl implements ServiceRequestDAO {
 
-    private final ServiceRequestRepository serviceRequestRepository;
+    private final WorkInfoRepository workInfoRepository;
 
     @Override
-    public ServiceRequestEntity save(ServiceRequestEntity entity) {
-        return serviceRequestRepository.save(entity);
+    public WorkInfoEntity save(WorkInfoEntity entity) {
+        return workInfoRepository.save(entity);
     }
 
     @Override
-    public Optional<ServiceRequestEntity> findById(Long id) {
-        return serviceRequestRepository.findById(id);
+    public List<WorkInfoEntity> saveAll(Iterable<WorkInfoEntity> entities) {
+        return workInfoRepository.saveAll(entities);
     }
 
     @Override
-    public List<ServiceRequestEntity> findByUserIdOrderByCreatedAtDesc(String userId) {
-        return serviceRequestRepository.findByUserIdOrderByCreatedAtDesc(userId);
+    public Optional<WorkInfoEntity> findById(Long id) {
+        return workInfoRepository.findById(id);
     }
 
     @Override
-    public Optional<ServiceRequestEntity> findTop1ByUserIdOrderByCreatedAtDesc(String userId) {
-        return serviceRequestRepository.findTop1ByUserIdOrderByCreatedAtDesc(userId);
+    public List<WorkInfoEntity> findByUserIdOrderByRequestTimeDesc(String userId) {
+        return workInfoRepository.findByUserCar_User_UserIdOrderByRequestTimeDesc(userId);
+    }
+
+    @Override
+    public List<WorkInfoEntity> findByRequestGroupId(String requestGroupId) {
+        return workInfoRepository.findByRequestGroupId(requestGroupId);
     }
 }
