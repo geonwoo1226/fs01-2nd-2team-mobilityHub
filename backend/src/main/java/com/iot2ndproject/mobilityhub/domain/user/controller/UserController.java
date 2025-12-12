@@ -5,6 +5,8 @@ import com.iot2ndproject.mobilityhub.domain.user.dto.UserRequestDTO;
 import com.iot2ndproject.mobilityhub.domain.user.dto.UserResponseDTO;
 import com.iot2ndproject.mobilityhub.domain.user.jwt.TokenProvider;
 import com.iot2ndproject.mobilityhub.domain.user.service.UserService;
+import com.iot2ndproject.mobilityhub.domain.vehicle.entity.CarEntity;
+import com.iot2ndproject.mobilityhub.domain.vehicle.entity.UserCarEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -13,15 +15,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
-
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
@@ -55,7 +54,11 @@ public class UserController {
                 .body(Map.of(
                         "accessToken",jwtToken,
                         "userId",responseDTO.getUserId(),
-                        "roles",responseDTO.getRole()
+                        "roles",responseDTO.getRole(),
+                        "cars",responseDTO.getUserCars().stream()
+                                .map(UserCarEntity::getCar)
+                                .map(CarEntity::getCarNumber)
+                                .collect(Collectors.joining(", "))
                 ));
     }
 }
