@@ -42,7 +42,7 @@ public class WorkInfoEntity {
 
     // car_state 숫자(FK) -> parking_map_node.node_id
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "car_state", referencedColumnName = "node_id")
+    @JoinColumn(name = "node_id")
     private ParkingMapNodeEntity carState;
 
     @Column(columnDefinition = "TEXT")
