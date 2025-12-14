@@ -51,7 +51,7 @@ public class EntranceServiceImpl implements EntranceService {
 
         WorkInfoEntity work = workInfoDAO.findLatestWithImage();
         ImageEntity image = work != null ? work.getImage() : imageDAO.findLatest();
-        
+
         return toResponse(work, image);
     }
 
