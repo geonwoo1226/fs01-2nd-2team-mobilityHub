@@ -56,7 +56,7 @@ const RepairSection = () => {
     (repair) =>
       repair.carState !== CAR_STATE.REPAIRING &&
       repair.entryTime == null &&
-      repair.entryTime == null
+      repair.exitTime == null
   );
 
   const handleCompleteWork = () => {
@@ -236,6 +236,7 @@ const RepairSection = () => {
                   <th className="stock-category text-center">현재 재고</th>
                   <th className="stock-category text-center">최소 재고</th>
                   <th className="stock-category text-center">상태</th>
+                  <th className="stock-category text-center">작업</th>
                 </tr>
               </thead>
               <tbody>

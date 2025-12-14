@@ -42,6 +42,7 @@ public class StockStatusEntity {
     private int stockPrice; // 개당 가격
 
     @UpdateTimestamp
+    @Column(columnDefinition = "DATETIME")
     private LocalDateTime updateTime; // 업데이트 날짜
 
     @ManyToOne(fetch = FetchType.LAZY)
