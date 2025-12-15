@@ -1,9 +1,13 @@
 package com.iot2ndproject.mobilityhub.domain.work.service;
 
+import com.iot2ndproject.mobilityhub.domain.work.dao.WorkInfoDAO;
 import com.iot2ndproject.mobilityhub.domain.work.dto.WorkInfoResponseDTO;
 import com.iot2ndproject.mobilityhub.domain.work.entity.WorkInfoEntity;
+import com.iot2ndproject.mobilityhub.domain.work.repository.WorkRepository;
 import com.iot2ndproject.mobilityhub.domain.work.repository.WorksearchRepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,6 +20,9 @@ import java.util.stream.Collectors;
 public class WorkInfoService {
 
     private final WorksearchRepository worksearchRepository;
+    @Autowired
+    private WorkInfoDAO dao;
+    private final ModelMapper modelMapper;
 
     // ✔ 금일 입차 조회
     public List<WorkInfoResponseDTO> getTodayEntryDTO() {
@@ -64,5 +71,25 @@ public class WorkInfoService {
         }
 
         return dto;
+    }
+
+    // 작업 목록 전부 불러오기
+    public List<WorkInfoResponseDTO> findAll(){
+        System.out.println("작업목록 service");
+
+        return dao.findAll()
+                .stream()
+                .map(entity -> {
+                    WorkInfoResponseDTO dto = new WorkInfoResponseDTO();
+                    dto.setWorkId(entity.getWork().getWorkId());
+                    dto.setWorkType(entity.getWork().getWorkType());
+                    dto.setEntryTime(entity.getRequestTime());
+                    dto.setExitTime(entity.getExitTime());
+                    // 나머지 필드(carNumber, cameraId 등)는 필요 없으면 안 채움
+                    return dto;
+                })
+                .collect(Collectors.toList());
+
+
     }
 }
