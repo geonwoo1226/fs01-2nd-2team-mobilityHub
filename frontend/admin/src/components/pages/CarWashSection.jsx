@@ -6,7 +6,11 @@ import CarWashBarChart from "../chart/CarWashBarChart";
 import useMqtt from "../hook/useMqtt";
 
 // MQTT 브로커 주소
+<<<<<<< HEAD
 const BROKER_URL = "ws://192.168.14.39:9001";
+=======
+const BROKER_URL = "ws://192.168.137.1:9001";
+>>>>>>> a5682efbb5cdd0b0e9eba35c9bc20571abdc508f
 //const BROKER_URL = import.meta.env.VITE_BROKER_URL;
 
 // 차량 상태 상수
@@ -111,7 +115,7 @@ const CarWashSection = () => {
       {/* CCTV와 이용 현황 */}
       <div className="wash-components">
         <div className="wash-cctv">
-          <img src={imageSrc || null} alt="camera" />
+          <img src={imageSrc || ""} alt="camera" className="cctv-view" />
         </div>
         <div className="wash-car-list">
           <div className="list-title">
