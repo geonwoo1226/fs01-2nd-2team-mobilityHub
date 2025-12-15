@@ -57,6 +57,17 @@ const deleteStock = async (inventoryId) => {
   }
 };
 
+const writeReport = async (reportData) => {
+  try {
+    const response = await backendServer.post(request.writeReport, reportData);
+
+    return response;
+  } catch (error) {
+    console.error("에러발생: ", error);
+    alert("보고서 작성도중 에러가 발생했습니다.");
+  }
+};
+
 // 월별 금액
 const getRepairAmount = async () => {
   try {
@@ -67,4 +78,4 @@ const getRepairAmount = async () => {
   }
 };
 
-export { repairPageAllList, reportAllList, updateStock, deleteStock, createStock, getRepairAmount };
+export { repairPageAllList, reportAllList, updateStock, deleteStock, createStock, getRepairAmount, writeReport };
